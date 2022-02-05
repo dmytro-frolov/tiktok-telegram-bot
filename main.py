@@ -4,10 +4,9 @@ import logging
 from telegram.ext import Updater
 
 from commands import HANDLERS
-from msg_handler import MESSAGE_HANDLER
+from handlers.msg_handler import MESSAGE_HANDLER
 
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                     level=logging.INFO)
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 
 token = os.environ.get('token')
