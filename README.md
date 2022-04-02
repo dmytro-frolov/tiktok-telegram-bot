@@ -3,7 +3,7 @@
 Token is needed as environ
 
 docker build --tag tt_bot .\
-docker run -e token=TOKEN -e DB_URL=sqlite:///dev.db  tt_bot
+docker run -e token=TOKEN -e DB_URL=sqlite:////db/prod.db -v /home/ubuntu/db:/db tt_bot
 
 
 ### Migration

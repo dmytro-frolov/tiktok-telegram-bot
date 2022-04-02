@@ -24,3 +24,5 @@ coverage.xml
 venv
 .venv
 out.html
+*.db
+*.env
