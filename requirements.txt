@@ -1,2 +1,4 @@
 python-telegram-bot==13.11
 requests==2.27.*
+SQLAlchemy==1.4.*
+alembic==1.7.*

@@ -5,11 +5,21 @@ from telegram import Update, ParseMode, error
 from telegram.ext import MessageHandler, Filters, CallbackContext
 
 from handlers.tiktok_handler import TTHandler
+from models import User, session
 
 
 def msg_handler(update: Update, context: CallbackContext):
     input_text = update.message.text
     if tt_link := re.findall(".*(https://.*tiktok.com/.*?)($|\s)", input_text):
+
+        with session() as s:
+            if not s.query(User).filter_by(user_id=update.effective_user.id).first():
+                u = User(user_id=update.effective_user.id,
+                         name=update.effective_user.username)
+                s.add(u)
+                s.commit()
+
+
         link = tt_link[0][0]
 
         tt = TTHandler(link)
